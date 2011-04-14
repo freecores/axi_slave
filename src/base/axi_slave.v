@@ -67,13 +67,14 @@ module PREFIX(PORTS);
 
    
    IFDEF TRACE
-     CREATE axi_slave_trace.v #(SLAVE_NUM)
-       PREFIX_trace PREFIX_trace(
-			         .clk(clk),
-			         .reset(reset),
-                                 .GROUP_STUB_MEM(GROUP_STUB_MEM),
-                                 STOMP ,
-			         );
+     CREATE axi_slave_trace.v
+       PREFIX_trace #(SLAVE_NUM)
+         PREFIX_trace(
+		      .clk(clk),
+		      .reset(reset),
+                      .GROUP_STUB_MEM(GROUP_STUB_MEM),
+                      STOMP ,
+		      );
      
    ENDIF TRACE
    
