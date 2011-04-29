@@ -33,6 +33,7 @@ INCLUDE def_axi_slave.txt
   
 module PREFIX_busy(PORTS);
    
+CREATE prgen_rand.v DEFCMD(DEFINE NOT_IN_LIST)
 `include "prgen_rand.v"
    
    input 		      clk;
