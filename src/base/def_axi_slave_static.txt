@@ -27,6 +27,8 @@
 ////                                                             ////
 //////////////////////////////////////////////////////////////////##>
 
+SWAP MODEL_NAME AXI slave stub
+  
 VERIFY (DATA_BITS <= 64) else stub supports 32 or 64 bits data bus
 VERIFY (SIZE_BITS <= 3) else stub supports 32 or 64 bits data bus
 VERIFY (ADDR_BITS<=24) else Memory size should not be too big to prevent maloc fail

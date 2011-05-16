@@ -29,18 +29,18 @@
 
 INCLUDE def_axi_slave_static.txt
 
-SWAP.GLOBAL #FFD #1                 ##Flip-Flop simulation delay
+SWAP.GLOBAL #FFD #1                      ##Flip-Flop simulation delay
 
-SWAP PREFIX      axi_slave          ##prefix for all module and file names
+SWAP.USER PREFIX      axi_slave          ##prefix for all module and file names
   
-SWAP ID_BITS     4                  ##AXI ID bits
-SWAP ADDR_BITS   24                 ##AXI address bits
-SWAP DATA_BITS   64                 ##AXI data bits
-SWAP LEN_BITS    4                  ##AXI LEN bits
-SWAP SIZE_BITS   2                  ##AXI SIZE bits
+SWAP.USER ID_BITS     4                  ##AXI ID bits
+SWAP.USER ADDR_BITS   24                 ##AXI address bits
+SWAP.USER DATA_BITS   64                 ##AXI data bits
+SWAP.USER LEN_BITS    4                  ##AXI LEN bits
+SWAP.USER SIZE_BITS   2                  ##AXI SIZE bits
 
-SWAP WCMD_DEPTH   8                 ##AXI write command depth
-SWAP RCMD_DEPTH   8                 ##AXI write command depth
+SWAP.USER WCMD_DEPTH   8                 ##AXI write command depth
+SWAP.USER RCMD_DEPTH   8                 ##AXI write command depth
 
-##DEFINE TRACE                      ##print memory trace to file
+UNDEF TRACE                              ##print memory trace to file
   
