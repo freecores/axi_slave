@@ -27,6 +27,8 @@
 ////                                                             ////
 //////////////////////////////////////////////////////////////////##>
 
+REQUIRE(1.3)
+
 INCLUDE def_axi_slave_static.txt
 
 SWAP.GLOBAL #FFD #1                      ##Flip-Flop simulation delay
