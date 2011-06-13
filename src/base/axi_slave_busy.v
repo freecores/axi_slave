@@ -39,19 +39,10 @@ CREATE prgen_rand.v DEFCMD(DEFINE NOT_IN_LIST)
    input 		      clk;
    input 		      reset;
    
-   input 		      ARREADY_pre;
-   input 		      RVALID_pre;
-   input 		      AWREADY_pre;
-   input 		      WREADY_pre;
-   input 		      BVALID_pre;
-   
-   output 		      ARREADY;
-   output 		      RVALID;
-   output 		      AWREADY;
-   output 		      WREADY;
-   output 		      BVALID;
-
+   output 		      ARBUSY;
    output 		      RBUSY;
+   output 		      AWBUSY;
+   output 		      WBUSY;
    output 		      BBUSY;
 
 
@@ -87,14 +78,6 @@ CREATE prgen_rand.v DEFCMD(DEFINE NOT_IN_LIST)
    reg 			      AWBUSY;
    reg 			      WBUSY;
    reg 			      BBUSY;
-
-   
-
-   assign 		      ARREADY = ARREADY_pre & (~ARBUSY);
-   assign 		      RVALID  = RVALID_pre; //in rd_buff
-   assign 		      AWREADY = AWREADY_pre & (~AWBUSY);
-   assign 		      WREADY  = WREADY_pre  & (~WBUSY);
-   assign 		      BVALID  = BVALID_pre; //in wresp
 
 
    task set_stall;

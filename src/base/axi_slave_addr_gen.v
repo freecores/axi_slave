@@ -37,7 +37,7 @@ module PREFIX_addr_gen(PORTS);
    input 		      reset;
 
    input [ADDR_BITS-1:0]      cmd_addr;
-   input [1:0] 		      cmd_size;
+   input [SIZE_BITS-1:0] 	  cmd_size;
 
    input 		      advance;
    input 		      restart;
@@ -48,7 +48,7 @@ module PREFIX_addr_gen(PORTS);
    reg [ADDR_BITS-1:0] 	      offset;
    wire [3:0] 		      size_bytes;		      
 
-   assign 		      size_bytes = 
+   assign 		      size_bytes =
 			      cmd_size == 2'b00 ? 4'd1 :
 			      cmd_size == 2'b01 ? 4'd2 :
 			      cmd_size == 2'b10 ? 4'd4 :

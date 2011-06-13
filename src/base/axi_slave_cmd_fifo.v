@@ -63,7 +63,7 @@ module PREFIX_cmd_fifo (PORTS);
 
    output [ADDR_BITS-1:0]     cmd_addr;
    output [ID_BITS-1:0]       cmd_id;
-   output [1:0] 	      cmd_size;
+   output [SIZE_BITS-1:0] 	      cmd_size;
    output [LEN_BITS-1:0]      cmd_len;
    output [1:0] 	      cmd_resp;
    output 		      cmd_timeout;
@@ -111,7 +111,7 @@ module PREFIX_cmd_fifo (PORTS);
    
 
 CREATE prgen_fifo.v DEFCMD(DEFINE STUB)
-   prgen_fifo_stub #(ADDR_BITS+ID_BITS+LEN_BITS+2+2+1, DEPTH) 
+   prgen_fifo_stub #(ADDR_BITS+ID_BITS+SIZE_BITS+LEN_BITS+2+1, DEPTH) 
    cmd_fifo(
 	    .clk(clk),
 	    .reset(reset),
