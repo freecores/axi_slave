@@ -62,7 +62,7 @@ module PREFIX_ram(PORTS);
    //rcmd fifo
    wire [ADDR_BITS-1:0]       rcmd_addr;
    wire [ID_BITS-1:0] 	      rcmd_id;
-   wire [SIZE_BITS-1:0] 	  rcmd_size;
+   wire [SIZE_BITS-1:0]       rcmd_size;
    wire [LEN_BITS-1:0]        rcmd_len;
    wire [1:0] 		      rcmd_resp;
    wire 		      rcmd_timeout;
@@ -86,9 +86,12 @@ module PREFIX_ram(PORTS);
 
    assign 		      RID   = rcmd_id2;
 
-
-   assign 		      ARREADY = ((~rcmd_full) & (~AR_stall) & (~ARBUSY)) || (~ARVALID);
-   assign 		      AWREADY = ((~wcmd_full) & (~AW_stall) & (~AWBUSY)) || (~AWVALID);
+   //give ready only after VALID comes
+   assign                     ARREADY = ((~rcmd_full) & (~AR_stall) & (~ARBUSY)) & ARVALID;
+   assign                     AWREADY = ((~wcmd_full) & (~AW_stall) & (~AWBUSY)) & AWVALID;
+   
+  // assign                     ARREADY = ((~rcmd_full) & (~AR_stall) & (~ARBUSY)) || (~ARVALID);
+  // assign                     AWREADY = ((~wcmd_full) & (~AW_stall) & (~AWBUSY)) || (~AWVALID);
    assign 		      BVALID  = (~wresp_timeout) & (wresp_pending ? (~wresp_empty) : (~wresp_empty) & (~BBUSY));
 
    CREATE axi_slave_busy.v
@@ -244,7 +247,7 @@ module PREFIX_ram(PORTS);
 		   );
 
    //wr_buff
-   assign 		      WREADY = (~wcmd_timeout) & (~wcmd_empty) & (~WBUSY);
+   assign 		      WREADY = (~wcmd_timeout) & (~wcmd_empty) & (~WBUSY) & WVALID;
    assign 		      WR     = WVALID & WREADY & (~wcmd_empty);
    assign 		      DIN    = WDATA;
    assign 		      BSEL   = WSTRB;
