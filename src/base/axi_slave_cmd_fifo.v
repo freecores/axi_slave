@@ -52,7 +52,7 @@ module PREFIX_cmd_fifo (PORTS);
       
    input [ADDR_BITS-1:0]      AADDR;
    input [ID_BITS-1:0] 	      AID;
-   input [1:0] 		      ASIZE;
+   input [SIZE_BITS-1:0]      ASIZE;
    input [LEN_BITS-1:0]       ALEN;
    input 		      AVALID;
    input 		      AREADY;
@@ -63,7 +63,7 @@ module PREFIX_cmd_fifo (PORTS);
 
    output [ADDR_BITS-1:0]     cmd_addr;
    output [ID_BITS-1:0]       cmd_id;
-   output [SIZE_BITS-1:0] 	      cmd_size;
+   output [SIZE_BITS-1:0]     cmd_size;
    output [LEN_BITS-1:0]      cmd_len;
    output [1:0] 	      cmd_resp;
    output 		      cmd_timeout;
