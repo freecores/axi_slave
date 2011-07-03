@@ -26,8 +26,7 @@
 //// details. http://www.gnu.org/licenses/lgpl.html              ////
 ////                                                             ////
 //////////////////////////////////////////////////////////////////##>
-
-REQUIRE(1.4)
+REQUIRE(1.5)
 
 INCLUDE def_axi_slave_static.txt
 
